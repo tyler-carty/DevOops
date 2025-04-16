@@ -48,5 +48,17 @@ Then they can clone your repository and contribute code to your fork.
 
 > [!NOTE]
 > Please make sure to add them to your forked version of the repository. You won't be able to add them here directly.
+>
+> ### How to sign in to GitHub Copilot
+>
+> IT@LBG request will need to have been raised and completed before you can do the below:
+> 
+> Once you've been given a licence you'll be sent your username in an email (to your LBG email address).
+>
+> When logging in use the username you've been given (example: charlotte-Boults_lbgghcp) this will remove the password field and redirect you to the Microsoft sign in page.
+>
+> On the Microsoft sign in page use your LBG global credentials (example:Charlotte.boults@lloydsbanking.com) and password you use to log into your work device.
+>
+> Once authentication is complete you should be re-directed to GitHub Copilot home page.
 
 Now you're ready to start. Happy coding!
