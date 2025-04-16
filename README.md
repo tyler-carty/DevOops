@@ -5,8 +5,6 @@ This is the repository for the Reboot London Hackathon.
 
 ## Fork this Repository
 
-To track each team's code repositories, any team member who's responsible for building a component must fork this repository so that it can be incorporated into the judging criteria when selecting the winners.
-
 To fork this repository, select the `Fork` dropdown menu next to the title:
 
 ![](./images/fork.png)
@@ -52,85 +50,3 @@ Then they can clone your repository and contribute code to your fork.
 > Please make sure to add them to your forked version of the repository. You won't be able to add them here directly.
 
 Now you're ready to start. Happy coding!
-
-## The UK Intelligence Community's Design System
-
-> [!NOTE]
-> To help speed up the design and development process during the hackathon, we have included some resources here that are actively used by government agencies in the UK to design and build web applications.
-
-This Design System helps you to design and build complex, specialised apps and services. It's used by MI6, MI5, GCHQ and our partners to construct tools that keep the UK safe and prosperous.
-
-The Design System empowers through accessibility-by-design, a diverse and inclusive community, and flexible tech and implementation options.
-
-You can read more about it on their [website](https://design.sis.gov.uk/).
-
-### Install the UI Kit Components
-
-Install and use the UI Kit component library. Use React or web components to quickly build accessible interfaces.
-
-#### Installing the components
-
-The UI Kit components are available on [npmjs.com](https://www.npmjs.com/), and can be installed from the command line:
-
-```
-// Web components, Angular, Vue, Svelte
-npm install @ukic/web-components @ukic/fonts
-
-// React
-npm install @ukic/react @ukic/fonts
-```
-
-#### Using the components
-
-To use the components in a particular framework, follow the framework instructions.
-
-- [React](https://design.sis.gov.uk/get-started/install-components/react)
-- [Angular](https://design.sis.gov.uk/get-started/install-components/angular)
-- [Vue](https://design.sis.gov.uk/get-started/install-components/vue)
-- [Svelte](https://design.sis.gov.uk/get-started/install-components/svelte)
-- [Gatsby](https://design.sis.gov.uk/get-started/install-components/gatsby)
-- [Next.js](https://design.sis.gov.uk/get-started/install-components/nextJS)
-
-Web components can be used without the need for a framework. To use web components without a framework, follow the [web components instructions](https://design.sis.gov.uk/get-started/install-components/web-components).
-
-Custom Elements Everywhere has [more information on how web components work with other frameworks](https://custom-elements-everywhere.com/).
-
-#### Using third-party components
-
-If you can't find a suitable component in this Design System, then you can use one from a third-party library. Use the library's theming and customisation options and follow our [styles](https://design.sis.gov.uk/styles) so that they look and feel as similar as possible.
-
-You can replace the third-party components once they are released in the Design System.
-
-### Figma UI Kit
-
-Reusable and flexible Figma components used to design, prototype and hand-off designs for apps and digital products.
-
-#### About the Figma UI Kit
-
-We've built a Figma UI Kit to use alongside the guidance and code you'll find on this website. It'll make it easier to prototype and build things quickly.
-
-All Figma resources have been built with our users in mind, with a strong focus on making sure accessibility is embedded from the start. That way we can provide an amazing experience that is usable for everyone.
-
-#### Accessing the library for internal users
-
-The UI Kit is turned on by default for all projects within our community. Check that you are using the latest version.
-
-1. In a new or existing Figma design file, click 'Assets' from the left-hand side panel then click the 'Team library' icon (the book).
-
-![](./images/assets2x.webp)
-
-2. Make sure the Intelligence Community Design System library is turned on.
-
-![](./images/libraries2x.webp)
-
-#### Not part of the Intelligence Community?
-
-We've published our [Figma UI Kit](https://www.figma.com/community/file/1392159713403656562) to the Figma Community so that everyone can use our resources.
-
-You can make a copy of it in your local files and use the components in your designs. This is a static version and you won't automatically receive component updates. Check Figma Community regularly for new updates and versions.
-
-1. Navigate to the [Intelligence Community UI Kit on Figma Community](https://www.figma.com/community/file/1392159713403656562).
-2. Duplicate the library into your drafts and connect your project files.
-3. Use the [swap libraries](https://help.figma.com/hc/en-us/articles/360039150413-Swap-components-and-instances) function in Figma to quickly swap your components from one version to the next.
-
-If you want to request a new feature, or if you notice any issues, you can [raise it on GitHub issues](https://github.com/mi6/ic-design-system/issues). For more information please read h[ow to contribute to the Figma UI Kit](https://design.sis.gov.uk/community/contribute#contribute-to-the-figma-ui-kit).
