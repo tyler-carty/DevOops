@@ -1,4 +1,4 @@
-import { AppShell, Container, Stack, Title, Text, Grid, Burger, Group } from '@mantine/core';
+import { AppShell, Container, Stack, Title, Grid, Burger, Group } from '@mantine/core';
 import dynamic from 'next/dynamic'; // Import dynamic
 import { useState } from 'react'; // Import useState
 import { useDisclosure } from '@mantine/hooks'; // Import useDisclosure for mobile nav toggle

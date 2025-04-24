@@ -1,4 +1,4 @@
-import { Card, Title, Text, useMantineTheme } from '@mantine/core';
+import { Card, Title, Text } from '@mantine/core';
 import { RadarChart } from '@mantine/charts';
 import { HealthMetric } from '../data/personaData';
 
@@ -8,9 +8,6 @@ interface HealthMetricsCardProps {
 }
 
 export function HealthMetricsCard({ metrics, insight }: HealthMetricsCardProps) {
-  const theme = useMantineTheme();
-  // Use the primary color defined in the theme
-  const primaryChartColor = theme.colors[theme.primaryColor][6]; // Adjust index for desired shade
 
   const chartData = metrics.map(m => ({ ...m, value: m.value }));
 
