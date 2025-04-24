@@ -55,4 +55,3 @@ Given the 6-hour timeframe, our focus is on demonstrating the core concept effec
 * **Frontend:** HTML, CSS (Tailwind CSS), JavaScript (or potentially a simple React setup if time permits and team is comfortable).
 * **Backend:** Minimal/None. Logic will likely be handled directly in the frontend JavaScript for this MVP.
 * **Data:** Using the provided CSV persona files to inform the "staged" logic and narrative.
-
