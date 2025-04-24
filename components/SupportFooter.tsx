@@ -7,17 +7,17 @@ export function SupportFooter() {
   return (
     <Group justify="space-between" h="100%" px="md">
       <Text size="sm" c="dimmed">
-        © {new Date().getFullYear()} Momentum Builder (Lloyds Hackathon)
+        © {new Date().getFullYear()} Momentum 
       </Text>
       <Group gap="md">
         <Anchor href="#" target="_blank" size="sm" c={lbgGreen}> {/* Replace # with actual links */} 
-          Support
+          Lloyds Bank Academy
         </Anchor>
         <Anchor href="#" target="_blank" size="sm" c={lbgGreen}>
-          Privacy Policy
+          Lloyds Bank Products & Services
         </Anchor>
         <Anchor href="#" target="_blank" size="sm" c={lbgGreen}>
-          Terms of Service
+          Headspace App
         </Anchor>
       </Group>
     </Group>

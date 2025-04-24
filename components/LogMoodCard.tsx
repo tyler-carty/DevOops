@@ -29,7 +29,7 @@ export function LogMoodCard() {
             <Button
               key={mood}
               variant={selectedMood === mood ? 'filled' : 'light'}
-              color={selectedMood === mood ? theme.primaryColor : color}
+              color={color}
               onClick={() => handleMoodSelect(mood)}
               size="sm"
               radius="xl"

@@ -71,7 +71,6 @@ export default function HomePage() {
             <Title order={1}>
                 Welcome, {currentPersona.name}
             </Title>
-            <Text c="dimmed">{currentPersona.description}</Text>
           </Stack>
 
           {/* Main Content Grid */}

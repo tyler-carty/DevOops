@@ -34,7 +34,7 @@ export function HealthMetricsCard({ metrics, insight }: HealthMetricsCardProps) 
         withPolarRadiusAxis
         series={[
           // Use theme color for the chart series
-          { name: 'value', color: primaryChartColor, opacity: 0.6 },
+          { name: 'value', color: "#00864F", opacity: 0.6 },
         ]}
         // You might need to adjust props based on your data scale
         // For example, if values aren't 0-100, you might need domain settings
