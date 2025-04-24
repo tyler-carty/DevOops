@@ -2,11 +2,12 @@ import { AppShell, Container, Stack, Title, Text, Grid, Burger, Group } from '@m
 import dynamic from 'next/dynamic'; // Import dynamic
 import { useState } from 'react'; // Import useState
 import { useDisclosure } from '@mantine/hooks'; // Import useDisclosure for mobile nav toggle
-import { LogMoodCard } from '../components/LogMoodCard';
-import { MicroGoalsCard } from '../components/MicroGoalsCard';
-import { SupportFooter } from '../components/SupportFooter';
-import { PersonaSwitcherSidebar } from '../components/PersonaSwitcherSidebar'; // Import the new sidebar
-import { personas, PersonaData } from '../data/personaData'; // Import the data
+import Image from 'next/image'; // Import Next.js Image component
+import { LogMoodCard } from '@/components/LogMoodCard';
+import { MicroGoalsCard } from '@/components/MicroGoalsCard';
+import { SupportFooter } from '@/components/SupportFooter';
+import { PersonaSwitcherSidebar } from '@/components/PersonaSwitcherSidebar';
+import { personas, PersonaData } from '@/data/personaData'; // Import the data
 
 // Dynamically import HealthMetricsCard with SSR disabled
 const HealthMetricsCard = dynamic(
@@ -40,7 +41,14 @@ export default function HomePage() {
             <Group>
                 <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
                 <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
-                <Title order={3} c="lbg-green">Momentum Builder</Title>
+                <Image
+                  src="/lloyds-logo.svg" // Path relative to the public directory
+                  alt="Lloyds Bank Logo"
+                  height={35} // Adjust height as needed for the header
+                  width={100} // Adjust width based on logo aspect ratio, or let height control
+                  priority // Prioritize loading the logo
+                  style={{ objectFit: 'contain' }} // Ensure logo scales nicely
+                />
             </Group>
             {/* Optional: Add User Info/Logout here */}
         </Group>

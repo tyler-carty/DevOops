@@ -6,26 +6,29 @@ import { MantineProvider, createTheme, virtualColor } from '@mantine/core';
 
 // Define LBG-inspired theme colors
 const lbgGreen = '#00864F';
-const lbgBlue = '#007ea3'; // Secondary accent
+const lbgBlue = '#007ea3'; // Secondary accent - Keep or remove?
 const lbgNearBlack = '#231F20';
+const lbgWhite = '#ffffff'; // Adding white
 
 const theme = createTheme({
-  fontFamily: 'Verdana, sans-serif', // Consistent clean font
+  fontFamily: 'Poppins, sans-serif', // Use Poppins as the base font
   primaryColor: 'lbg-green',       // Set primary to LBG Green
+  white: lbgWhite,
+  black: lbgNearBlack,
   headings: {
-    fontFamily: 'Arial, sans-serif', // Slightly bolder/different heading font
-    fontWeight: '700',
-    // Default heading color can be set here if needed
+    fontFamily: 'Poppins, sans-serif', // Use Poppins for headings too
+    fontWeight: '600', // Adjust weight as needed (Poppins has 300-700)
     // styles: {
     //   root: {
-    //     color: lbgNearBlack, // Example
+    //     color: lbgNearBlack, // Handled by default color scheme or Title override
     //   }
     // }
   },
   colors: {
+    // Ensure names match primaryColor etc.
     'lbg-green': virtualColor({
       name: 'lbg-green',
-      dark: lbgGreen, // Use the same green for dark mode for simplicity
+      dark: lbgGreen,
       light: lbgGreen,
     }),
     'lbg-blue': virtualColor({
@@ -33,51 +36,41 @@ const theme = createTheme({
       dark: lbgBlue,
       light: lbgBlue,
     }),
-    // You can define full color arrays (0-9) if needed for shades
-    // Example for green:
-    // 'lbg-green': [
-    //   '#e0f2eb', '#b3dfd1', '#80c9b3', '#4dbb95',
-    //   '#26ad7d', lbgGreen, '#007a47', '#006b3f',
-    //   '#005e37', '#00512f'
-    // ],
+    // Mantine often expects shades 0-9. VirtualColor is simpler but less flexible.
+    // If full palette needed, define arrays like the commented example.
   },
   components: {
     Button: {
-      // Example: Default LBG green buttons
       defaultProps: {
         color: 'lbg-green',
       },
-      // styles: (theme: MantineTheme) => ({ root: { } }),
+      // styles: (theme) => ({ root: { fontWeight: 500 } }), // Example style override
     },
     Card: {
       styles: () => ({
         root: {
-          // Add subtle border accent using primary color?
-          // borderColor: theme.colors['lbg-green'][2], // Light green border
+           // Keep default card styling for now
         }
       })
     },
     Title: {
        styles: () => ({
          root: {
-           // Use near black for titles by default for readability
-           color: lbgNearBlack,
+           color: lbgNearBlack, // Keep titles black for readability
          }
        })
     },
     Anchor: {
       defaultProps: {
-        c: 'lbg-green', // Default link color to LBG green
+        c: 'lbg-green', // Keep links green
       }
     },
-    // Override chart colors if needed globally, though often done per-chart
-    // RadarChart: { ... }
   },
 });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    // Using light theme explicitly based on previous setup
+    // Set default scheme based on branding needs (usually light)
     <MantineProvider theme={theme} defaultColorScheme="light">
       <Component {...pageProps} />
     </MantineProvider>
