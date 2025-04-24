@@ -43,19 +43,29 @@ for file in (os.listdir(os.getcwd() + '/data')):
         healthy_reference = {
             'Step Count (steps)': 70000,  # Average weekly steps
             'Exercise Minutes (minutes)': 210,  # Recommended weekly exercise
-            'Mindfulness Minutes (minutes)': 70,  # Suggested mindfulness duration
+            'Mindfulness Minutes (minutes)': 77,  # Suggested mindfulness duration
             'Deep Sleep (%)': 20,  # Percentage of total sleep
             'REM Sleep (%)': 25,  # Percentage of total sleep
             'Heart Rate (bpm)': 70  # Average resting heart rate
         }
 
         normalized_weekly_data = weekly_data.copy()
-        print('here')
-        print(normalized_weekly_data.head())
 
         for column in columns:
-            normalized_weekly_data[column] = weekly_data[column] / healthy_reference[column]
+            if column == 'Heart Rate (bpm)':
+                # Normalize heart rate: closer to 70 is 1, higher values are closer to 0
+                normalized_weekly_data[column] = 1 - abs(weekly_data[column] - healthy_reference[column]) / healthy_reference[column]
+            else:
+                # Normalize other columns: values closer to the target are 1
+                normalized_weekly_data[column] = weekly_data[column] / healthy_reference[column]
+                # Average values for radar graph
+                averages = normalized_weekly_data.mean()
 
+        
+        # Ensure values don't touch the edges by capping them between 0.1 and 0.9
+        normalized_weekly_data = normalized_weekly_data.clip(lower=0.1, upper=0.9)
+
+                
         # Average values for radar graph
         averages = normalized_weekly_data.mean()
 
@@ -69,7 +79,12 @@ for file in (os.listdir(os.getcwd() + '/data')):
         ))
 
         fig.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[0, 1])),
+            polar=dict(
+                radialaxis=dict(
+                    visible=True,
+                    range=[0, 1]  # Keep the range between 0 and 1
+                )
+            ),
             title=f"Radar Graph for {file}'s Health Metrics"
         )
 
