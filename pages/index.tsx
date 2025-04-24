@@ -1,9 +1,11 @@
-import { AppShell, Container, Stack, Title, Text, Grid } from '@mantine/core';
+import { AppShell, Container, Stack, Title, Text, Grid, Burger, Group } from '@mantine/core';
 import dynamic from 'next/dynamic'; // Import dynamic
-import { useState } from 'react'; // Import useState if needed for persona switching later
+import { useState } from 'react'; // Import useState
+import { useDisclosure } from '@mantine/hooks'; // Import useDisclosure for mobile nav toggle
 import { LogMoodCard } from '../components/LogMoodCard';
 import { MicroGoalsCard } from '../components/MicroGoalsCard';
 import { SupportFooter } from '../components/SupportFooter';
+import { PersonaSwitcherSidebar } from '../components/PersonaSwitcherSidebar'; // Import the new sidebar
 import { personas, PersonaData } from '../data/personaData'; // Import the data
 
 // Dynamically import HealthMetricsCard with SSR disabled
@@ -17,36 +19,51 @@ const HealthMetricsCard = dynamic(
 );
 
 export default function HomePage() {
-  // For now, hardcode to Samira. Later, add state for persona switching.
-  const currentPersona: PersonaData = personas.samira;
+  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true); // Sidebar starts open on desktop
+
+  // State for selected persona key
+  const [selectedPersonaKey, setSelectedPersonaKey] = useState<string>('samira'); // Default to Samira
+  const personaKeys = Object.keys(personas);
+  const currentPersona: PersonaData = personas[selectedPersonaKey];
 
   return (
     <AppShell
       padding="md"
-      // header={{ height: 60 }} // Placeholder if a header is added
-      // navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: true } }} // Placeholder for sidebar
+      header={{ height: 60 }}
+      navbar={{ width: 250, breakpoint: 'sm', collapsed: { mobile: !mobileOpened, desktop: !desktopOpened } }}
       footer={{ height: 60 }}
     >
-      {/* Placeholder for Header Component - Add when needed */}
-      {/* <AppShell.Header p="md">
-        <Title order={2}>Momentum Builder</Title>
-      </AppShell.Header> */}
+      {/* Simple Header with Burger for mobile nav toggle */}
+      <AppShell.Header>
+        <Group h="100%" px="md" justify="space-between">
+            <Group>
+                <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
+                <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
+                <Title order={3} c="lbg-green">Momentum Builder</Title>
+            </Group>
+            {/* Optional: Add User Info/Logout here */}
+        </Group>
+      </AppShell.Header>
 
-      {/* Placeholder for Navbar/Sidebar - Your colleague will integrate this */}
-      {/* <AppShell.Navbar p="md">
-        Navbar content (persona switcher, etc.)
-      </AppShell.Navbar> */}
+      {/* Sidebar for Persona Switching */}
+      <AppShell.Navbar p="md">
+        <PersonaSwitcherSidebar
+          personaKeys={personaKeys}
+          selectedPersonaKey={selectedPersonaKey}
+          onSelectPersona={setSelectedPersonaKey}
+        />
+      </AppShell.Navbar>
 
+      {/* Main Content Area */}
       <AppShell.Main>
         <Container size="lg" py="xl">
-          {/* Page Header */}
-          <Stack mb="xl"> {/* Add margin below header */}
-            <Title order={1} c="lbg-green"> {/* Use LBG green for main title */}
-                Momentum Builder
+          {/* Page Header (Now displays current persona) */}
+          <Stack mb="xl">
+            <Title order={1}>
+                Welcome, {currentPersona.name}
             </Title>
-            <Text c="dimmed">Hello {currentPersona.name}, here's your dashboard.</Text>
-             {/* Optional: Add Persona Description here if needed */}
-             {/* <Text size="sm">({currentPersona.description})</Text> */}
+            <Text c="dimmed">{currentPersona.description}</Text>
           </Stack>
 
           {/* Main Content Grid */}

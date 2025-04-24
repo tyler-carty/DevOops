@@ -9,7 +9,7 @@ export interface MicroGoal {
   id: string;
   text: string;
   reason: string; // "Why this helps?" text
-  category: 'Wellbeing' | 'Productivity' | 'Finance' | 'Activity';
+  category: 'Wellbeing' | 'Career Aspirations' | 'Financial Goals';
 }
 
 export interface PersonaData {
@@ -35,22 +35,22 @@ export const samiraData: PersonaData = {
   ],
   suggestedGoals: [
     {
-      id: 'g1',
+      id: 's1',
       text: 'Try a 5-minute guided breathing exercise.',
-      reason: 'Helps calm the nervous system and reduce feelings of anxiety.',
+      reason: 'Helps calm the nervous system and reduce immediate feelings of anxiety.',
       category: 'Wellbeing',
     },
     {
-      id: 'g2',
-      text: 'Spend 10 minutes tidying one small area.',
-      reason: 'A tidy space can reduce overwhelm and improve focus.',
-      category: 'Productivity',
+      id: 's2',
+      text: 'Browse part-time job listings online for 15 minutes.',
+      reason: 'Exploring options can build confidence and open doors to financial independence.',
+      category: 'Career Aspirations',
     },
      {
-      id: 'g3',
-      text: 'Go for a short 15-minute walk outside.',
-      reason: 'Gentle movement and fresh air can boost mood and energy.',
-      category: 'Activity',
+      id: 's3',
+      text: 'Track spending for one day (5 mins).',
+      reason: 'Understanding where money goes is the first step to managing it better.',
+      category: 'Financial Goals',
     },
   ],
   moodLog: [],
@@ -73,18 +73,18 @@ export const javierData: PersonaData = {
       id: 'j1',
       text: 'Review finances & create a simple budget for 15 mins.',
       reason: 'Feeling in control of finances can reduce overall stress.',
-      category: 'Finance',
+      category: 'Financial Goals',
     },
     {
       id: 'j2',
-      text: 'Plan study blocks for one subject today (10 mins).',
-      reason: 'Breaking down tasks makes academic work less daunting.',
-      category: 'Productivity',
+      text: 'Research one skill needed for a desired future job (15 mins).',
+      reason: 'Connecting studies to career goals can increase motivation.',
+      category: 'Career Aspirations',
     },
     {
       id: 'j3',
-      text: 'Take a 5-minute mindful breathing break.',
-      reason: 'Helps manage immediate feelings of stress and overwhelm.',
+      text: 'Take a 10-minute walk outside between study sessions.',
+      reason: 'Physical activity helps manage stress and improves focus.',
       category: 'Wellbeing',
     },
   ],
@@ -106,21 +106,21 @@ export const aishaData: PersonaData = {
   suggestedGoals: [
     {
       id: 'a1',
-      text: 'Do a 10-minute stretching routine.',
-      reason: 'Gentle movement can boost energy and improve mood.',
-      category: 'Activity',
-    },
-    {
-      id: 'a2',
       text: 'Set a reminder for a consistent wind-down routine tonight.',
       reason: 'Consistent routines improve sleep quality over time.',
       category: 'Wellbeing',
     },
     {
+      id: 'a2',
+      text: 'Identify one online course related to your interests (10 mins).',
+      reason: 'Exploring learning opportunities can spark career ideas.',
+      category: 'Career Aspirations',
+    },
+    {
       id: 'a3',
-      text: 'Spend 15 minutes reading a book before bed (no screens).',
-      reason: 'Reduces blue light exposure which can disrupt sleep.',
-      category: 'Wellbeing',
+      text: 'Compare two different savings accounts online (15 mins).',
+      reason: 'Understanding savings options supports long-term financial health.',
+      category: 'Financial Goals',
     },
   ],
   moodLog: [],
@@ -147,15 +147,15 @@ export const kofiData: PersonaData = {
     },
     {
       id: 'k2',
-      text: 'Identify one small work task to delegate or postpone.',
-      reason: 'Reducing workload helps manage burnout symptoms.',
-      category: 'Productivity',
+      text: 'Update one section of your LinkedIn profile or CV (15 mins).',
+      reason: 'Keeping professional profiles current supports career growth.',
+      category: 'Career Aspirations',
     },
     {
       id: 'k3',
-      text: 'Plan a relaxing activity for the weekend (10 mins).',
-      reason: 'Anticipating leisure time can improve mood and motivation.',
-      category: 'Wellbeing',
+      text: 'Review your pension contributions or options (10 mins).',
+      reason: 'Planning for the future contributes to financial security.',
+      category: 'Financial Goals',
     },
   ],
   moodLog: [],
@@ -182,15 +182,15 @@ export const ahmedData: PersonaData = {
     },
     {
       id: 'ah2',
-      text: 'Plan healthy meals/snacks for your next shift (15 mins).',
-      reason: 'Consistent nutrition helps regulate energy on irregular schedules.',
-      category: 'Wellbeing',
+      text: 'Look up certifications relevant to your field (15 mins).',
+      reason: 'Professional development can lead to career advancement.',
+      category: 'Career Aspirations',
     },
     {
       id: 'ah3',
-      text: 'Spend 10 minutes in bright light soon after waking.',
-      reason: 'Helps reset your body clock and improve alertness.',
-      category: 'Wellbeing',
+      text: 'Check your credit score using a free service (10 mins).',
+      reason: 'Knowing your credit score is important for financial opportunities.',
+      category: 'Financial Goals',
     },
   ],
   moodLog: [],
@@ -211,21 +211,21 @@ export const liweiData: PersonaData = {
   suggestedGoals: [
     {
       id: 'lw1',
-      text: 'Try a new healthy recipe this week.',
-      reason: 'Exploring variety keeps healthy eating enjoyable.',
+      text: 'Try a 10-minute meditation or mindfulness exercise.',
+      reason: 'Maintaining mental wellbeing complements physical health.',
       category: 'Wellbeing',
     },
     {
       id: 'lw2',
-      text: 'Challenge yourself with a slightly longer workout.',
-      reason: 'Progressive overload helps maintain fitness levels.',
-      category: 'Activity',
+      text: 'Read an article about industry trends in your field (15 mins).',
+      reason: 'Staying informed supports long-term career relevance.',
+      category: 'Career Aspirations',
     },
     {
       id: 'lw3',
-      text: 'Learn a new productivity technique (15 mins).',
-      reason: 'Continuous learning supports personal growth.',
-      category: 'Productivity',
+      text: 'Research ethical investment options for 15 minutes.',
+      reason: 'Aligning finances with values can be rewarding.',
+      category: 'Financial Goals',
     },
   ],
   moodLog: [],

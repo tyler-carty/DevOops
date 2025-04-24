@@ -26,8 +26,7 @@ export function HealthMetricsCard({ metrics, insight }: HealthMetricsCardProps) 
       </Text>
 
       <RadarChart
-        h={"100%"}
-        w={"100%"}
+        h={300}
         data={chartData}
         dataKey="metric"
         withPolarGrid

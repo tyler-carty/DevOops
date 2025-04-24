@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import '@mantine/core/styles.css';
 import '@mantine/charts/styles.css';
-import { MantineProvider, createTheme, MantineTheme, virtualColor } from '@mantine/core';
+import { MantineProvider, createTheme, virtualColor } from '@mantine/core';
 
 // Define LBG-inspired theme colors
 const lbgGreen = '#00864F';
@@ -50,7 +50,7 @@ const theme = createTheme({
       // styles: (theme: MantineTheme) => ({ root: { } }),
     },
     Card: {
-      styles: (theme: MantineTheme) => ({
+      styles: () => ({
         root: {
           // Add subtle border accent using primary color?
           // borderColor: theme.colors['lbg-green'][2], // Light green border
@@ -58,7 +58,7 @@ const theme = createTheme({
       })
     },
     Title: {
-       styles: (theme: MantineTheme) => ({
+       styles: () => ({
          root: {
            // Use near black for titles by default for readability
            color: lbgNearBlack,

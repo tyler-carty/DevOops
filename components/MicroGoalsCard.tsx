@@ -2,7 +2,6 @@ import {
   Card,
   Title,
   Text,
-  Stack,
   ThemeIcon,
   Group,
   Accordion,
@@ -13,7 +12,6 @@ import {
   IconTargetArrow,
   IconBulb,
   IconHeartbeat,
-  IconWalk,
   IconBriefcase,
   IconPigMoney,
 } from '@tabler/icons-react';
@@ -29,11 +27,9 @@ function getCategoryIcon(category: MicroGoal['category'], theme: MantineTheme) {
   switch (category) {
     case 'Wellbeing':
       return <IconHeartbeat {...iconProps} />;
-    case 'Productivity':
+    case 'Career Aspirations':
       return <IconBriefcase {...iconProps} />;
-    case 'Activity':
-      return <IconWalk {...iconProps} />;
-    case 'Finance':
+    case 'Financial Goals':
       return <IconPigMoney {...iconProps} />;
     default:
       return <IconBulb {...iconProps} />;
