@@ -1,115 +1,84 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import { AppShell, Container, Stack, Title, Text, Grid } from '@mantine/core';
+import dynamic from 'next/dynamic'; // Import dynamic
+import { useState } from 'react'; // Import useState if needed for persona switching later
+import { LogMoodCard } from '../components/LogMoodCard';
+import { MicroGoalsCard } from '../components/MicroGoalsCard';
+import { SupportFooter } from '../components/SupportFooter';
+import { personas, PersonaData } from '../data/personaData'; // Import the data
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+// Dynamically import HealthMetricsCard with SSR disabled
+const HealthMetricsCard = dynamic(
+  () => import('../components/HealthMetricsCard').then((mod) => mod.HealthMetricsCard),
+  {
+    ssr: false,
+    // Optional: Add a loading component while the chart loads
+    // loading: () => <p>Loading chart...</p>,
+  }
+);
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+export default function HomePage() {
+  // For now, hardcode to Samira. Later, add state for persona switching.
+  const currentPersona: PersonaData = personas.samira;
 
-export default function Home() {
   return (
-    <div
-      className={`${geistSans.className} ${geistMono.className} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+    <AppShell
+      padding="md"
+      // header={{ height: 60 }} // Placeholder if a header is added
+      // navbar={{ width: 300, breakpoint: 'sm', collapsed: { mobile: true } }} // Placeholder for sidebar
+      footer={{ height: 60 }}
     >
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      {/* Placeholder for Header Component - Add when needed */}
+      {/* <AppShell.Header p="md">
+        <Title order={2}>Momentum Builder</Title>
+      </AppShell.Header> */}
+
+      {/* Placeholder for Navbar/Sidebar - Your colleague will integrate this */}
+      {/* <AppShell.Navbar p="md">
+        Navbar content (persona switcher, etc.)
+      </AppShell.Navbar> */}
+
+      <AppShell.Main>
+        <Container size="lg" py="xl">
+          {/* Page Header */}
+          <Stack mb="xl"> {/* Add margin below header */}
+            <Title order={1} c="lbg-green"> {/* Use LBG green for main title */}
+                Momentum Builder
+            </Title>
+            <Text c="dimmed">Hello {currentPersona.name}, here's your dashboard.</Text>
+             {/* Optional: Add Persona Description here if needed */}
+             {/* <Text size="sm">({currentPersona.description})</Text> */}
+          </Stack>
+
+          {/* Main Content Grid */}
+          <Grid gutter="xl">
+            {/* Left Column (Health + Mood) */}
+            <Grid.Col span={{ base: 12, md: 7 }}> {/* Takes full width on small, 7/12 on medium+ */}
+              <Stack gap="xl">
+                {/* Render the dynamically imported component */}
+                <HealthMetricsCard
+                  metrics={currentPersona.healthMetrics}
+                  insight={currentPersona.currentInsight}
+                />
+                <LogMoodCard />
+              </Stack>
+            </Grid.Col>
+
+            {/* Right Column (Goals) */}
+            <Grid.Col span={{ base: 12, md: 5 }}> {/* Takes full width on small, 5/12 on medium+ */}
+              <MicroGoalsCard goals={currentPersona.suggestedGoals} />
+            </Grid.Col>
+
+             {/* Add more Grid.Col or components here if needed */}
+          </Grid>
+        </Container>
+      </AppShell.Main>
+
+      <AppShell.Footer
+        style={{ borderTop: `1px solid var(--mantine-color-gray-2)` }}
+      >
+          <SupportFooter />
+      </AppShell.Footer>
+
+    </AppShell>
   );
 }
