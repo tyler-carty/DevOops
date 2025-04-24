@@ -1,0 +1,9 @@
+.full-h {
+    height: 100%;
+}
+
+.loading-text {
+    text-align: center;
+    border-radius: var(--mantine-radius-lg);
+    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-8));
+}

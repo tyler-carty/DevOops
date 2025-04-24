@@ -1,0 +1,214 @@
+@use "sass:math";
+@use "sass:map";
+
+// breakpoints - same as in your theme object
+$mantine-breakpoint-xxs: 21em;
+$mantine-breakpoint-xs: 36em;
+$mantine-breakpoint-sm: 48em;
+$mantine-breakpoint-md: 62em;
+$mantine-breakpoint-lg: 75em;
+$mantine-breakpoint-xl: 88em;
+$mantine-breakpoint-xxl: 100em;
+$breakpoints: (
+    xxs: $mantine-breakpoint-xxs,
+    xs: $mantine-breakpoint-xs,
+    sm: $mantine-breakpoint-sm,
+    md: $mantine-breakpoint-md,
+    lg: $mantine-breakpoint-lg,
+    xl: $mantine-breakpoint-xl,
+    xxl: $mantine-breakpoint-xxl,
+);
+
+@function rem($value) {
+    @return #{math.div(math.div($value, $value * 0 + 1), 16)}rem;
+}
+
+@mixin light {
+    [data-mantine-color-scheme="light"] & {
+        @content;
+    }
+}
+
+@mixin dark {
+    [data-mantine-color-scheme="dark"] & {
+        @content;
+    }
+}
+
+@mixin hover {
+    @media (hover: hover) {
+        &:hover {
+            @content;
+        }
+    }
+
+    @media (hover: none) {
+        &:active {
+            @content;
+        }
+    }
+}
+
+// direction - rtl support
+@mixin rtl {
+    [dir="rtl"] & {
+        @content;
+    }
+}
+
+@mixin ltr {
+    [dir="ltr"] & {
+        @content;
+    }
+}
+
+@function em-to-px($value-in-em, $base-font-size: 16px) {
+    @return $value-in-em * $base-font-size;
+}
+
+@function px-to-em($value-in-px, $base-font-size: 16px) {
+    @return $value-in-px / $base-font-size;
+}
+
+@function em-minus-pixel($value-in-em, $pixel-value: 0.1) {
+    $em-value-in-px: em-to-px($value-in-em);
+    $adjusted-em-value-in-px: $em-value-in-px - $pixel-value;
+    @return px-to-em($adjusted-em-value-in-px);
+}
+
+//  Media - open breakpoints
+@mixin media-breakpoint-up($name) {
+    @media (min-width: map.get($breakpoints, $name)) {
+        @content;
+    }
+}
+
+@mixin media-breakpoint-down($name) {
+    @media (max-width: em-minus-pixel(map.get($breakpoints, $name))) {
+        @content;
+    }
+}
+
+// Media - width mixins
+@mixin media-xxs-up {
+    @include media-breakpoint-up(xxs) {
+        @content;
+    }
+}
+@mixin media-xxs-down {
+    @include media-breakpoint-down(xxs) {
+        @content;
+    }
+}
+@mixin media-xs-up {
+    @include media-breakpoint-up(xs) {
+        @content;
+    }
+}
+@mixin media-xs-down {
+    @include media-breakpoint-down(xs) {
+        @content;
+    }
+}
+@mixin media-sm-up {
+    @include media-breakpoint-up(sm) {
+        @content;
+    }
+}
+@mixin media-sm-down {
+    @include media-breakpoint-down(sm) {
+        @content;
+    }
+}
+@mixin media-md-up {
+    @include media-breakpoint-up(md) {
+        @content;
+    }
+}
+@mixin media-md-down {
+    @include media-breakpoint-down(md) {
+        @content;
+    }
+}
+@mixin media-lg-up {
+    @include media-breakpoint-up(lg) {
+        @content;
+    }
+}
+@mixin media-lg-down {
+    @include media-breakpoint-down(lg) {
+        @content;
+    }
+}
+@mixin media-xl-up {
+    @include media-breakpoint-up(xl) {
+        @content;
+    }
+}
+@mixin media-xl-down {
+    @include media-breakpoint-down(xl) {
+        @content;
+    }
+}
+@mixin media-xxl-up {
+    @include media-breakpoint-up(xxl) {
+        @content;
+    }
+}
+@mixin media-xxl-down {
+    @include media-breakpoint-down(xxl) {
+        @content;
+    }
+}
+
+// Media - tailored with device type
+@mixin media-ultra-small-mobile-down {
+    @include media-xxs-down {
+        @content;
+    }
+}
+@mixin media-small-mobile-up {
+    @include media-xxs-up {
+        @content;
+    }
+}
+@mixin media-small-mobile-down {
+    @include media-xs-down {
+        @content;
+    }
+}
+@mixin media-mobile-up {
+    @include media-xs-up {
+        @content;
+    }
+}
+@mixin media-mobile-down {
+    @include media-sm-down {
+        @content;
+    }
+}
+@mixin media-tablet-up {
+    @include media-sm-up {
+        @content;
+    }
+}
+@mixin media-tablet-down {
+    @include media-md-down {
+        @content;
+    }
+}
+@mixin media-desktop-up {
+    @include media-md-up {
+        @content;
+    }
+}
+@mixin media-desktop-down {
+    @include media-lg-down {
+        @content;
+    }
+}
+@mixin media-wide-desktop-up {
+    @include media-lg-up {
+        @content;
+    }
+}
