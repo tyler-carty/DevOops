@@ -1,5 +1,7 @@
 # Demo Health Data for Reboot 2025 London Hackathon
 
+[Kanban board](https://dev.azure.com/team23hacker02/DevOops/_boards/board/t/DevOops%20Team/Issues)
+
 ## Overview
 This folder contains synthetic smartwatch health datasets created for the Reboot 2025 London Hackathon. Each CSV represents hourly records for one of six personas over the period 1 Mar 2025 to 30 Mar 2025. Teams can use these realistic datasets to build and test wellbeing solutions tailored to diverse user needs.
 
