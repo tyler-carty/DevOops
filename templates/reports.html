@@ -1,16 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reports</title>
+    <title>Generated Reports</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
-<h1>Generated Reports</h1>
-<div>
-    <a href="/">Return Home</a>
-</div>
-<ul>
-    {% for report in reports %}
-    <li><a href="{{ url_for('serve_report', filename=report) }}">{{ report }}</a></li>
-    {% endfor %}
-</ul>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/upload">Upload CSV</a>
+        <a href="/reports">View Reports</a>
+    </div>
+    <div class="container">
+        <h1>Generated Reports</h1>
+        <p>Below is a list of all the reports generated from uploaded CSV files. Click on a report to view or download it.</p>
+        <ul class="report-list">
+            {% for report in reports %}
+            <li>
+                <a href="{{ url_for('serve_report', filename=report) }}" class="report-link">
+                    {{ report }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="actions">
+            <a href="/" class="button">Return to Home</a>
+        </div>
+    </div>
+</body>
+</html>

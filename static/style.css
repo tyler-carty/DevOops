@@ -31,3 +31,41 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.report-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.report-list li {
+    margin: 10px 0;
+}
+
+.report-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.report-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #218838;
+}
