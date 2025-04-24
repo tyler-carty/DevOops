@@ -1,4 +1,0 @@
-pandas
-numpy
-ydata_profiling
-plotly
